@@ -142,11 +142,12 @@ export const renderMachines = (machines) => {
 };
 
 //!------------- Upload API data -------------->
-// window.addEventListener("load", getMachines);
-getMachines();
+window.addEventListener("load", getMachines);
+// getMachines();
 
 //!------------- Delete row on click -------------->
 mactableList.addEventListener("click", handleMachineDeleteClick);
 
 //!------------- Add Machines  -------------->
-handleAddMachine();
+// handleAddMachine();
+addBtn.addEventListener("click", handleAddMachine);

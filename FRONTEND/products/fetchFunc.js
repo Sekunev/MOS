@@ -1,6 +1,6 @@
 import { renderProduct } from "./app.js";
 
-const url = "http://127.0.0.1:8000/mosapi";
+const url = "https://sekune2.pythonanywhere.com/mosapi";
 
 //!------------- GET Product  -------------->
 
