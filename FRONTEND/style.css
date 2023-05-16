@@ -1,0 +1,39 @@
+.navbar {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+.title {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  color: rgb(177, 68, 68);
+  border: 2px solid black;
+  text-align: center;
+}
+.btn {
+  width: 8rem;
+  margin-right: 0.5rem;
+}
+.modal-button {
+  display: flex;
+  justify-content: left;
+  margin-left: 0.5rem;
+}
+.error {
+  text-align: center;
+  width: 8rem;
+}
+.table-container {
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid red; */
+  border-radius: 10px;
+}
+.table {
+  margin-top: 1rem;
+  width: 80%;
+}
+
+td {
+  vertical-align: middle;
+}
