@@ -9,7 +9,7 @@ const form = document.querySelector("form");
 
 export function handleAddMachine() {
   form.addEventListener("submit", (event) => {
-    event.preventDefault();
+    // event.preventDefault();
 
     postMachineDataFromApi();
   });
@@ -17,17 +17,17 @@ export function handleAddMachine() {
 }
 
 //!------------- Edit Machines  -------------->
-const editButton = document.querySelector(".editBtn");
+const editform = document.querySelector(".macmodal1");
 
 export function handleEditMachine() {
-  editButton.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const id =
-      event.target.parentElement.parentElement.parentElement.querySelector(
-        "#id"
-      ).textContent;
-    console.log(id);
-    putMachineDataFromApi(id);
+  editform.addEventListener("submit", (event) => {
+    // event.preventDefault();
+    // const id =
+    //   event.target.parentElement.parentElement.parentElement.querySelector(
+    //     "#id"
+    //   ).textContent;
+    // console.log("id");
+    putMachineDataFromApi();
   });
   console.log(editButton);
 }

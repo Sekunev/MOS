@@ -9,8 +9,6 @@ const form = document.querySelector("form");
 
 export function handleAddmachineContent() {
   form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
     postmachineContentsDataFromApi();
   });
   console.log(form);
@@ -41,7 +39,7 @@ export function handlemachineContentDeleteClick(e) {
     ).textContent;
 
   if (e.target.classList.contains("delete-btn")) {
-    // e.target.parentElement.parentElement.parentElement.remove();
+    e.target.parentElement.parentElement.parentElement.remove();
     deletemachineContents(id);
     console.log(e.target);
   }

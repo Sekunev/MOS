@@ -16,6 +16,10 @@ const addSelect = document.querySelector("#mac-Up-Group-id");
 const newOption = document.createElement("option");
 addSelect.appendChild(newOption);
 
+// const editSelect = document.querySelector("#mac-Up-Group-id1");
+// const newOption1 = document.createElement("option");
+// editSelect.appendChild(newOption1);
+
 let isError = false;
 
 export const renderMachines = (machines) => {
@@ -35,6 +39,9 @@ export const renderMachines = (machines) => {
     addSelect.innerHTML += `
     <option value="${id}">${makine_Ust_Grup_adi}</option>
     `;
+    // editSelect.innerHTML += `
+    // <option value="${id}">${makine_Ust_Grup_adi}</option>
+    // `;
 
     console.log(addSelect);
 
@@ -82,9 +89,22 @@ export const renderMachines = (machines) => {
 
               <div class="modal-body">
                 <form class="macmodal1" id="macmodal1">
-
                   <div class="mb-3">
-                    <label for="mac-name-input" class="form-label"
+                    <label for="mac-Up-Group-id1" class="form-label"
+                      >Makine Üst Grup ID</label
+                    >
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="mac-Up-Group-id1"
+                      value=""
+                      required
+                    >
+                      <option selected>Open this select menu</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="mac-name-input1" class="form-label"
                       >Makine Adı</label
                     >
                     <input
@@ -96,7 +116,7 @@ export const renderMachines = (machines) => {
                     />
                   </div>
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"
+                    <label for="mac-desc1" class="form-label"
                       >Makine Açıklaması</label
                     >
                     <input
@@ -117,8 +137,7 @@ export const renderMachines = (machines) => {
                     >
                     Close
                 </button>
-                
-                <button type="button" class="btn btn-primary editBtn" id="add-btn">Add/Edit Machine
+                <button type="submit" class="btn btn-primary editBtn" id="add-btn">Add/Edit Machine
                 </button>
                 </form>
               </div>
@@ -150,4 +169,6 @@ mactableList.addEventListener("click", handleMachineDeleteClick);
 
 //!------------- Add Machines  -------------->
 // handleAddMachine();
-addBtn.addEventListener("click", handleAddMachine);
+// addBtn.addEventListener("click", handleAddMachine);
+
+handleAddMachine();

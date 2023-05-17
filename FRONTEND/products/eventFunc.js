@@ -9,8 +9,6 @@ const form = document.querySelector("form");
 
 export function handleAddProduct() {
   form.addEventListener("submit", (event) => {
-    event.preventDefault();
-
     postProductDataFromApi();
   });
   console.log(form);
