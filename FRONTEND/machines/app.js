@@ -16,12 +16,13 @@ const addSelect = document.querySelector("#mac-Up-Group-id");
 const newOption = document.createElement("option");
 addSelect.appendChild(newOption);
 
-// const editSelect = document.querySelector("#mac-Up-Group-id1");
-// const newOption1 = document.createElement("option");
-// editSelect.appendChild(newOption1);
+const editSelect = document.querySelector("#mac-Up-Group-id1");
+const macNameInput1 = document.querySelector("#mac-name-input1");
+const macDescInput1 = document.querySelector("#mac-desc1");
+
+const machineId = console.log(editSelect);
 
 let isError = false;
-
 export const renderMachines = (machines) => {
   const mactableList = document.querySelector(".mac-table-list");
   if (isError) {
@@ -33,21 +34,31 @@ export const renderMachines = (machines) => {
   }
   // console.log(machines);
 
+  addSelect.innerHTML = `
+  <option selected>Open this select menu</option>
+  `;
+
   machines.forEach((item) => {
     const { id, makine_Ust_Grup_adi, makineler } = item; //! dest
 
     addSelect.innerHTML += `
     <option value="${id}">${makine_Ust_Grup_adi}</option>
     `;
-    // editSelect.innerHTML += `
-    // <option value="${id}">${makine_Ust_Grup_adi}</option>
-    // `;
+    editSelect.innerHTML += `
+    <option value="${id}">${makine_Ust_Grup_adi}</option>
+    `;
+    macNameInput1.value = `${makineler.makine_adi}`;
 
-    // console.log(addSelect);
+    console.log(makineler.filter((item) => item.id === id)[0]);
 
     makineler.forEach((itemMach) => {
       const { makine_adi, makine_aciklamasi, makine_ust_grup_id } = itemMach; //! dest
-
+      writeModal(
+        itemMach.id,
+        makine_adi,
+        makine_aciklamasi,
+        makine_ust_grup_id
+      ); // writeModal fonksiyonunu çağır
       mactableList.innerHTML += `
       <tr class="${itemMach.id}">
         <th scope="row" id="id">${itemMach.id}</th>
@@ -57,101 +68,37 @@ export const renderMachines = (machines) => {
         <td>
         <div class="modal-button">
         <button
-          type="button"
-          class="btn btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#exampleModal1"
-        >
-          Edit Machine
-        </button>
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal1"
+        data-id="${itemMach.id}"
+        onclick="writeModal('${itemMach.id}', '${makine_adi}', '${makine_aciklamasi}', '${makine_ust_grup_id}')"
+      >
+        Edit Machine
+      </button>
+      <button type="button" data=${itemMach.id} class="btn btn-danger delete-btn">Delete</button>
 
-        <!--! Modal -->
-        <div
-          class="modal fade"
-          id="exampleModal1"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Edit Machine
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-
-              <div class="modal-body">
-                <form class="macmodal1" id="macmodal1">
-                  <div class="mb-3">
-                    <label for="mac-Up-Group-id1" class="form-label"
-                      >Makine Üst Grup ID</label
-                    >
-                    <select
-                      class="form-select"
-                      aria-label="Default select example"
-                      id="mac-Up-Group-id1"
-                      value=""
-                      required
-                    >
-                      <option selected>Open this select menu</option>
-                    </select>
-                  </div>
-                  <div class="mb-3">
-                    <label for="mac-name-input1" class="form-label"
-                      >Makine Adı</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="mac-name-input1"
-                      aria-describedby="emailHelp"
-                      value=""
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="mac-desc1" class="form-label"
-                      >Makine Açıklaması</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="mac-desc1"
-                      aria-describedby="emailHelp"
-                      value=""
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="modal-footer">
-                    <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                    >
-                    Close
-                </button>
-                <button type="submit" class="btn btn-primary editBtn" id="add-btn">Add/Edit Machine
-                </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-     
-      
-      <button type="button" class="btn btn-danger delete-btn">Delete</button>
     </td>
   </tr>
       `;
     });
   });
+  function writeModal(id, makine_adi, makine_aciklamasi, makine_ust_grup_id) {
+    // document.querySelector("modalInputId").value = id;
+    const macUpGroupInput1 = document.querySelector("#mac-Up-Group-id1");
+    const macNameInput1 = document.querySelector("#mac-name-input1");
+    const macDescInput1 = document.querySelector("#mac-desc1");
+    const inputElement = document.querySelector("#modalInputId");
+    inputElement.value = "Yazılan metin";
+    console.log(inputElement);
+
+    macUpGroupInput1.value = makine_ust_grup_id;
+    macNameInput1.value = makine_adi;
+    macDescInput1.value = makine_aciklamasi;
+  }
+  // const newOption1 = document.createElement("option");
+  // editSelect.appendChild(newOption1);
 
   //   let addSelect1 = document.querySelector("#mac-Up-Group-id1");
   //   let newOption1 = document.createElement("option");
