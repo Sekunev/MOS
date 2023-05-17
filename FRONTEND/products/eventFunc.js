@@ -14,19 +14,13 @@ export function handleAddProduct() {
 }
 
 //!------------- Edit Product -------------->
-const editButton = document.querySelector(".editBtn");
-
+const editform = document.querySelector(".promodal1");
 export function handleEditProduct() {
-  editButton.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const id =
-      event.target.parentElement.parentElement.parentElement.querySelector(
-        "#id"
-      ).textContent;
-
-    putProductDataFromApi(id);
+  editform.addEventListener("submit", (event) => {
+    console.log(11);
+    const proUpGroupInput1 = document.querySelector("#pro-Up-Group-id1");
+    putProductDataFromApi(proUpGroupInput1.value);
   });
-  // console.log(editButton);
 }
 
 //!------------- Delete Product -------------->

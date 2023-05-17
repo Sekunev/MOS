@@ -1,6 +1,6 @@
 import {
   handleAddProduct,
-  //   handleEditProduct,
+  handleEditProduct,
   handleProductDeleteClick,
 } from "./eventFunc.js";
 import { getProduct } from "./fetchFunc.js";
@@ -15,6 +15,28 @@ protableList.appendChild(newtr);
 const addSelect = document.querySelector("#pro-Up-Group-id");
 const newOption = document.createElement("option");
 addSelect.appendChild(newOption);
+
+const editSelect = document.querySelector("#pro-Up-Group-id1");
+const proNameInput1 = document.querySelector("#pro-name-input1");
+
+const handleEditButtonClick = (event) => {
+  const urun_ust_grup_id = event.target.getAttribute("urun_ust_grup_id");
+  const urun_adi = event.target.getAttribute("urun_adi");
+  const urun_aciklamasi = event.target.getAttribute("urun_aciklamasi");
+
+  const proUpGroupInput1 = document.querySelector("#pro-Up-Group-id1");
+  const proNameInput1 = document.querySelector("#pro-name-input1");
+  const proDescInput1 = document.querySelector("#pro-desc1");
+  console.log(urun_ust_grup_id);
+  proUpGroupInput1.value = urun_ust_grup_id;
+  proNameInput1.value = urun_adi;
+  proDescInput1.value = urun_aciklamasi;
+};
+protableList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("edit-btn")) {
+    handleEditButtonClick(event);
+  }
+});
 
 let isError = false;
 
@@ -37,7 +59,10 @@ export const renderProduct = (Products) => {
     addSelect.innerHTML += `
     <option value="${id}">${urun_Ust_Grup_adi}</option>
     `;
-
+    editSelect.innerHTML += `
+    <option value="${id}">${urun_Ust_Grup_adi}</option>
+    `;
+    proNameInput1.value = `${urunler.urun_adi}`;
     // console.log(addSelect);
 
     urunler.forEach((itempro) => {
@@ -53,80 +78,18 @@ export const renderProduct = (Products) => {
         <div class="modal-button">
         <button
           type="button"
-          class="btn btn-primary"
+          class="btn btn-primary edit-btn"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal1"
+          data-id="${itempro.id}"
+          urun_adi="${urun_adi}"
+          urun_ust_grup_id="${urun_ust_grup_id}"
+          urun_aciklamasi="${urun_aciklamasi}"
         >
           Edit Product
         </button>
 
-        <!--! Modal -->
-        <div
-          class="modal fade"
-          id="exampleModal1"
-          tabindex="-1"
-          aria-labelledby="exampleModalLabel"
-          aria-hidden="true"
-        >
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                  Edit Product
-                </h1>
-                <button
-                  type="button"
-                  class="btn-close"
-                  data-bs-dismiss="modal"
-                  aria-label="Close"
-                ></button>
-              </div>
-
-              <div class="modal-body">
-                <form class="promodal1" id="promodal1">
-
-                  <div class="mb-3">
-                    <label for="pro-name-input" class="form-label"
-                      >ürün Adı</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="pro-name-input1"
-                      aria-describedby="emailHelp"
-                      value=""
-                    />
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"
-                      >ürün Açıklaması</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="pro-desc1"
-                      aria-describedby="emailHelp"
-                      value=""
-                      required
-                    />
-                  </div>
-                </div>
-                <div class="modal-footer">
-                    <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                    >
-                    Close
-                </button>
-                
-                <button type="button" class="btn btn-primary editBtn" id="add-btn">Add/Edit Product
-                </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
+       
      
       
       <button type="button" data=${itempro.id} class="btn btn-danger delete-btn">Delete</button>
@@ -135,12 +98,6 @@ export const renderProduct = (Products) => {
       `;
     });
   });
-
-  //   let addSelect1 = document.querySelector("#pro-Up-Group-id1");
-  //   let newOption1 = document.createElement("option");
-  //   addSelect1.appendChild(newOption1);
-
-  //   console.log(addSelect1);
 };
 
 //!------------- Upload API data -------------->
@@ -152,3 +109,6 @@ protableList.addEventListener("click", handleProductDeleteClick);
 
 //!------------- Add Products  -------------->
 handleAddProduct();
+
+//!------------- Edit Product  -------------->
+handleEditProduct();

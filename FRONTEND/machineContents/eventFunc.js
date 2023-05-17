@@ -15,19 +15,12 @@ export function handleAddmachineContent() {
 }
 
 //!------------- Edit machineContent -------------->
-const editButton = document.querySelector(".editBtn");
-
-export function handleEditmachineContent() {
-  editButton.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const id =
-      event.target.parentElement.parentElement.parentElement.querySelector(
-        "#id"
-      ).textContent;
-    // console.log(id);
-    putmachineContentsDataFromApi(id);
+const editform = document.querySelector(".macmodal1");
+export function handleEditMachine() {
+  editform.addEventListener("submit", (event) => {
+    const macConUpGroupInput1 = document.querySelector("#macCon-Up-Group-id1");
+    putMachineDataFromApi(macConUpGroupInput1.value);
   });
-  // console.log(editButton);
 }
 
 //!------------- Delete machineContent -------------->

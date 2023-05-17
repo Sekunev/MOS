@@ -56,15 +56,11 @@ export const putProductDataFromApi = async function (id) {
   const proDescInput1 = document.querySelector("#pro-desc1");
   const proUpGroupInput1 = document.querySelector("#pro-Up-Group-id1");
 
-  if (proNameInput.value.trim() !== "") {
-    const response = await axios.put(`${url}/urunler/${id}/`, {
-      urun_ust_grup_id: proUpGroupInput1.value,
-      urun_adi: proNameInput1.value,
-      urun_aciklamasi: proDescInput1.value,
-    });
-  } else {
-    alert("The Product name is required. Please enter a value!");
-  }
+  const response = await axios.put(`${url}/urunler/${id}/`, {
+    urun_ust_grup_id: proUpGroupInput1.value,
+    urun_adi: proNameInput1.value,
+    urun_aciklamasi: proDescInput1.value,
+  });
 
   try {
     if (!response) {

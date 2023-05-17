@@ -18,13 +18,10 @@ export function handleAddMachine() {
 
 //!------------- Edit Machines  -------------->
 const editform = document.querySelector(".macmodal1");
-
 export function handleEditMachine() {
   editform.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const id = e.target.getAttribute("data");
-    console.log(id);
-    putMachineDataFromApi();
+    const macUpGroupInput1 = document.querySelector("#mac-Up-Group-id1");
+    putMachineDataFromApi(macUpGroupInput1.value);
   });
 }
 

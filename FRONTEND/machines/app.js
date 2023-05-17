@@ -18,16 +18,11 @@ addSelect.appendChild(newOption);
 
 const editSelect = document.querySelector("#mac-Up-Group-id1");
 const macNameInput1 = document.querySelector("#mac-name-input1");
-const macDescInput1 = document.querySelector("#mac-desc1");
-
-const machineId = console.log(editSelect);
 
 const handleEditButtonClick = (event) => {
   const makine_ust_grup_id = event.target.getAttribute("makine_ust_grup_id");
   const makine_adi = event.target.getAttribute("makine_adi");
   const makine_aciklamasi = event.target.getAttribute("makine_aciklamasi");
-  const makine_ust_grup_id_data =
-    event.target.getAttribute("makine_aciklamasi");
 
   const macUpGroupInput1 = document.querySelector("#mac-Up-Group-id1");
   const macNameInput1 = document.querySelector("#mac-name-input1");
@@ -36,7 +31,8 @@ const handleEditButtonClick = (event) => {
   macUpGroupInput1.value = makine_ust_grup_id;
   macNameInput1.value = makine_adi;
   macDescInput1.value = makine_aciklamasi;
-  console.log(macUpGroupInput1.value);
+  console.log(macUpGroupInput1);
+  console.log(macDescInput1.value);
 };
 mactableList.addEventListener("click", (event) => {
   if (event.target.classList.contains("edit-btn")) {
@@ -54,7 +50,7 @@ export const renderMachines = (machines) => {
         `;
     return;
   }
-  // console.log(machines);
+  console.log(machines);
 
   addSelect.innerHTML = `
   <option selected>Open this select menu</option>
@@ -92,7 +88,7 @@ export const renderMachines = (machines) => {
           makine_adi="${makine_adi}"
           makine_ust_grup_id="${makine_ust_grup_id}"
           makine_aciklamasi="${makine_aciklamasi}"
-          onclick="handleEditButtonClick(event)"
+
       >
         Edit Machine
       </button>
@@ -115,3 +111,6 @@ mactableList.addEventListener("click", handleMachineDeleteClick);
 //!------------- Add Machines  -------------->
 // handleAddMachine();
 addBtn.addEventListener("click", handleAddMachine);
+
+//!------------- Edit Machines  -------------->
+handleEditMachine();
