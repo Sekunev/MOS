@@ -52,20 +52,21 @@ export const postMachineDataFromApi = async function () {
 
 //!------------- PUT Machines  -------------->
 
-export const putMachineDataFromApi = async function () {
+export const putMachineDataFromApi = async function (id) {
   const macUpGroupInput1 = document.querySelector("#mac-Up-Group-id1");
   const macNameInput1 = document.querySelector("#mac-name-input1");
   const macDescInput1 = document.querySelector("#mac-desc1");
 
   if (macNameInput.value.trim() !== "") {
-    const response = await axios.put(`${url}/makineler/12/`, {
-      // makine_ust_grup_id: macUpGroupInput1.value,
-      // makine_adi: macNameInput1.value,
-      // makine_aciklamasi: macDescInput1.value,
-      makine_adi: "Len",
-      makine_aciklamasi: "Tarayıcı",
-      makine_ust_grup_id: 2,
+    const response = await axios.put(`${url}/makineler/${id}/`, {
+      makine_ust_grup_id: macUpGroupInput1.value,
+      makine_adi: macNameInput1.value,
+      makine_aciklamasi: macDescInput1.value,
+      // makine_adi: "Len",
+      // makine_aciklamasi: "Tarayıcı",
+      // makine_ust_grup_id: 2,
     });
+    console.log(response);
   } else {
     alert("The machine name is required. Please enter a value!");
   }

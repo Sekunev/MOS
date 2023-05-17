@@ -21,12 +21,9 @@ const editform = document.querySelector(".macmodal1");
 
 export function handleEditMachine() {
   editform.addEventListener("submit", (event) => {
-    // event.preventDefault();
-    // const id =
-    //   event.target.parentElement.parentElement.parentElement.querySelector(
-    //     "#id"
-    //   ).textContent;
-    // console.log("id");
+    event.preventDefault();
+    const id = e.target.getAttribute("data");
+
     putMachineDataFromApi();
   });
 }
@@ -34,11 +31,13 @@ export function handleEditMachine() {
 //!------------- Delete Machines  -------------->
 
 export function handleMachineDeleteClick(e) {
-  const id =
-    e.target.parentElement.parentElement.parentElement.querySelector(
-      "#id"
-    ).textContent;
-
+  // const id =
+  //   e.target.parentElement.parentElement.parentElement.querySelector(
+  //     "#id"
+  //   ).textContent;
+  const id = e.target.getAttribute("data");
+  console.log(id);
+  console.log(e.target.getAttribute("data"));
   if (e.target.classList.contains("delete-btn")) {
     deleteMachine(id);
 
