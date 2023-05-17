@@ -28,7 +28,9 @@ export const renderProduct = (Products) => {
     return;
   }
   // console.log(Products);
-
+  addSelect.innerHTML = `
+  <option selected>Open this select menu</option>
+  `;
   Products.forEach((item) => {
     const { id, urun_Ust_Grup_adi, urunler } = item; //! dest
 
@@ -127,7 +129,7 @@ export const renderProduct = (Products) => {
         </div>
      
       
-      <button type="button" class="btn btn-danger delete-btn">Delete</button>
+      <button type="button" data=${itempro.id} class="btn btn-danger delete-btn">Delete</button>
     </td>
   </tr>
       `;

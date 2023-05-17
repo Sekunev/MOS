@@ -23,21 +23,17 @@ export function handleEditMachine() {
   editform.addEventListener("submit", (event) => {
     event.preventDefault();
     const id = e.target.getAttribute("data");
-
-    putMachineDataFromApi(id);
+    console.log(id);
+    putMachineDataFromApi();
   });
 }
 
 //!------------- Delete Machines  -------------->
 
 export function handleMachineDeleteClick(e) {
-  // const id =
-  //   e.target.parentElement.parentElement.parentElement.querySelector(
-  //     "#id"
-  //   ).textContent;
   const id = e.target.getAttribute("data");
   // console.log(id);
-  // console.log(e.target.getAttribute("data"));
+
   if (e.target.classList.contains("delete-btn")) {
     deleteMachine(id);
 

@@ -52,13 +52,14 @@ export const postMachineDataFromApi = async function () {
 
 //!------------- PUT Machines  -------------->
 
-export const putMachineDataFromApi = async function (aa) {
+export const putMachineDataFromApi = async function () {
   const macUpGroupInput1 = document.querySelector("#mac-Up-Group-id1");
   const macNameInput1 = document.querySelector("#mac-name-input1");
   const macDescInput1 = document.querySelector("#mac-desc1");
-  console.log(aa);
+
+  console.log(macUpGroupInput1);
   if (macNameInput.value.trim() !== "") {
-    const response = await axios.put(`${url}/makineler/${aa}/`, {
+    const response = await axios.put(`${url}/makineler/${macUpGroupInput1}/`, {
       makine_ust_grup_id: macUpGroupInput1.value,
       makine_adi: macNameInput1.value,
       makine_aciklamasi: macDescInput1.value,

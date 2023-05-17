@@ -32,10 +32,7 @@ export function handleEditProduct() {
 //!------------- Delete Product -------------->
 
 export function handleProductDeleteClick(e) {
-  const id =
-    e.target.parentElement.parentElement.parentElement.querySelector(
-      "#id"
-    ).textContent;
+  const id = e.target.getAttribute("data");
 
   if (e.target.classList.contains("delete-btn")) {
     deleteProduct(id);

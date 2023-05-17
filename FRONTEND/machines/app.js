@@ -71,16 +71,8 @@ export const renderMachines = (machines) => {
     `;
     macNameInput1.value = `${makineler.makine_adi}`;
 
-    console.log(makineler.filter((item) => item.id === id)[0]);
-
     makineler.forEach((itemMach) => {
       const { makine_adi, makine_aciklamasi, makine_ust_grup_id } = itemMach; //! dest
-      // writeModal(
-      //   itemMach.id,
-      //   makine_adi,
-      //   makine_aciklamasi,
-      //   makine_ust_grup_id
-      // ); // writeModal fonksiyonunu çağır
 
       mactableList.innerHTML += `
       <tr class="${itemMach.id}">
@@ -111,34 +103,6 @@ export const renderMachines = (machines) => {
       `;
     });
   });
-  function writeModal(
-    id,
-    makine_adi,
-    makine_aciklamasi,
-    makine_ust_grup_id,
-    makine_Ust_Grup_adi
-  ) {
-    // document.querySelector("modalInputId").value = id;
-    const macUpGroupInput1 = document.querySelector("#mac-Up-Group-id1");
-    const macNameInput1 = document.querySelector("#mac-name-input1");
-    const macDescInput1 = document.querySelector("#mac-desc1");
-
-    const inputElement = document.querySelector("#modalInputId");
-    inputElement.value = "Yazılan metin";
-
-    macUpGroupInput1.value = makine_Ust_Grup_adi;
-    macNameInput1.value = makine_adi;
-    macDescInput1.value = makine_aciklamasi;
-    console.log(macUpGroupInput1.value);
-  }
-  // const newOption1 = document.createElement("option");
-  // editSelect.appendChild(newOption1);
-
-  //   let addSelect1 = document.querySelector("#mac-Up-Group-id1");
-  //   let newOption1 = document.createElement("option");
-  //   addSelect1.appendChild(newOption1);
-
-  //   console.log(addSelect1);
 };
 
 //!------------- Upload API data -------------->
@@ -151,5 +115,3 @@ mactableList.addEventListener("click", handleMachineDeleteClick);
 //!------------- Add Machines  -------------->
 // handleAddMachine();
 addBtn.addEventListener("click", handleAddMachine);
-
-handleAddMachine();
