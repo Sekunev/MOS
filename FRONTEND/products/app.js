@@ -27,7 +27,7 @@ export const renderProduct = (Products) => {
         `;
     return;
   }
-  console.log(Products);
+  // console.log(Products);
 
   Products.forEach((item) => {
     const { id, urun_Ust_Grup_adi, urunler } = item; //! dest
@@ -36,7 +36,7 @@ export const renderProduct = (Products) => {
     <option value="${id}">${urun_Ust_Grup_adi}</option>
     `;
 
-    console.log(addSelect);
+    // console.log(addSelect);
 
     urunler.forEach((itempro) => {
       const { urun_adi, urun_aciklamasi, urun_ust_grup_id } = itempro; //! dest

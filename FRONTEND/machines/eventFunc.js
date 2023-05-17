@@ -13,7 +13,7 @@ export function handleAddMachine() {
 
     postMachineDataFromApi();
   });
-  console.log(form);
+  // console.log(form);
 }
 
 //!------------- Edit Machines  -------------->
@@ -29,7 +29,6 @@ export function handleEditMachine() {
     // console.log("id");
     putMachineDataFromApi();
   });
-  console.log(editButton);
 }
 
 //!------------- Delete Machines  -------------->
@@ -40,12 +39,9 @@ export function handleMachineDeleteClick(e) {
       "#id"
     ).textContent;
 
-  console.log(id.textContent);
-  console.log(e.target);
-
   if (e.target.classList.contains("delete-btn")) {
     deleteMachine(id);
-    console.log(e.target);
+
     e.target.parentElement.parentElement.parentElement.remove();
   }
 }

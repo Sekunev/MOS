@@ -4,17 +4,16 @@
 
 ## Description
 
-● Makine ve ürün tablolarında listeleme, ekleme, düzenleme ve silme işlemlerini yapabilme.
-● Makine içeriklerinde, bir makineye ait ürünleri listeleme, ekleme, düzenleme ve silme işlemlerini yapabilme.
-● Verilerin saklanabilmesi için Django Backend ile Database oluşturma.  
-● Verilerin bir API üzerinden çekilmesi.
-● İlişkisel kolonlarda dropdown elementini kullanarak seçim yapma.
-● Backend ve frontend'in deploy edilerek canlıya alınması.
+- Makine ve ürün tablolarında listeleme, ekleme, ve silme işlemlerini yapabilme.
+- Makine içeriklerinde, bir makineye ait ürünleri listeleme, ekleme ve silme işlemlerini yapabilme.
+- Verilerin saklanabilmesi için Django Backend ile Database oluşturma.
+- Verilerin bir API üzerinden çekilmesi.
+- İlişkisel kolonlarda dropdown elementini kullanarak seçim yapma.
+- Backend ve frontend'in deploy edilerek canlıya alınması.
 
-<!--
 ### Visualization of the Website
 
-![image](https://github.com/Sekunev/Stock-App/blob/main/src/assets/AnimationProject.gif) -->
+![image](https://github.com/Sekunev/MOS/blob/main/FRONTEND/img/image.png)
 
 ## Project Skeleton
 

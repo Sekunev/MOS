@@ -12,7 +12,6 @@ export const getProduct = async function () {
       // If response is empty, we throw an error.
     }
 
-    console.log(response.data);
     renderProduct(response.data);
   } catch (error) {
     console.log(error);
@@ -66,7 +65,7 @@ export const putProductDataFromApi = async function (id) {
   } else {
     alert("The Product name is required. Please enter a value!");
   }
-  console.log(111);
+
   try {
     if (!response) {
       isError = true;

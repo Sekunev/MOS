@@ -31,7 +31,7 @@ export const renderMachines = (machines) => {
         `;
     return;
   }
-  console.log(machines);
+  // console.log(machines);
 
   machines.forEach((item) => {
     const { id, makine_Ust_Grup_adi, makineler } = item; //! dest
@@ -43,7 +43,7 @@ export const renderMachines = (machines) => {
     // <option value="${id}">${makine_Ust_Grup_adi}</option>
     // `;
 
-    console.log(addSelect);
+    // console.log(addSelect);
 
     makineler.forEach((itemMach) => {
       const { makine_adi, makine_aciklamasi, makine_ust_grup_id } = itemMach; //! dest

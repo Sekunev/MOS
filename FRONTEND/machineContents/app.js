@@ -27,7 +27,7 @@ export const rendermachineContent = (machineContents) => {
         `;
     return;
   }
-  console.log(machineContents);
+  // console.log(machineContents);
 
   machineContents.forEach((item) => {
     const { id, makine, urun, urun_adedi } = item; //! dest

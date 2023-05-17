@@ -11,7 +11,7 @@ export function handleAddmachineContent() {
   form.addEventListener("submit", (event) => {
     postmachineContentsDataFromApi();
   });
-  console.log(form);
+  // console.log(form);
 }
 
 //!------------- Edit machineContent -------------->
@@ -24,10 +24,10 @@ export function handleEditmachineContent() {
       event.target.parentElement.parentElement.parentElement.querySelector(
         "#id"
       ).textContent;
-    console.log(id);
+    // console.log(id);
     putmachineContentsDataFromApi(id);
   });
-  console.log(editButton);
+  // console.log(editButton);
 }
 
 //!------------- Delete machineContent -------------->
@@ -41,6 +41,6 @@ export function handlemachineContentDeleteClick(e) {
   if (e.target.classList.contains("delete-btn")) {
     e.target.parentElement.parentElement.parentElement.remove();
     deletemachineContents(id);
-    console.log(e.target);
+    // console.log(e.target);
   }
 }

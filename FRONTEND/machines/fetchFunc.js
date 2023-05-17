@@ -13,7 +13,6 @@ export const getMachines = async function () {
       // If response is empty, we throw an error.
     }
 
-    console.log(response.data);
     renderMachines(response.data);
   } catch (error) {
     console.log(error);
@@ -70,7 +69,7 @@ export const putMachineDataFromApi = async function () {
   } else {
     alert("The machine name is required. Please enter a value!");
   }
-  console.log(111);
+
   try {
     if (!response) {
       isError = true;

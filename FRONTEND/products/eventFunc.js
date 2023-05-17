@@ -11,7 +11,6 @@ export function handleAddProduct() {
   form.addEventListener("submit", (event) => {
     postProductDataFromApi();
   });
-  console.log(form);
 }
 
 //!------------- Edit Product -------------->
@@ -24,10 +23,10 @@ export function handleEditProduct() {
       event.target.parentElement.parentElement.parentElement.querySelector(
         "#id"
       ).textContent;
-    console.log(id);
+
     putProductDataFromApi(id);
   });
-  console.log(editButton);
+  // console.log(editButton);
 }
 
 //!------------- Delete Product -------------->
@@ -38,12 +37,9 @@ export function handleProductDeleteClick(e) {
       "#id"
     ).textContent;
 
-  console.log(id);
-  console.log(e.target);
-
   if (e.target.classList.contains("delete-btn")) {
     deleteProduct(id);
-    console.log(e.target);
+
     e.target.parentElement.parentElement.parentElement.remove();
   }
 }
