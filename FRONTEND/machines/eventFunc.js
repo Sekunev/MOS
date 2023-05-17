@@ -24,7 +24,7 @@ export function handleEditMachine() {
     event.preventDefault();
     const id = e.target.getAttribute("data");
 
-    putMachineDataFromApi();
+    putMachineDataFromApi(id);
   });
 }
 
@@ -36,8 +36,8 @@ export function handleMachineDeleteClick(e) {
   //     "#id"
   //   ).textContent;
   const id = e.target.getAttribute("data");
-  console.log(id);
-  console.log(e.target.getAttribute("data"));
+  // console.log(id);
+  // console.log(e.target.getAttribute("data"));
   if (e.target.classList.contains("delete-btn")) {
     deleteMachine(id);
 

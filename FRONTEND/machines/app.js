@@ -1,6 +1,6 @@
 import {
   handleAddMachine,
-  //   handleEditMachine,
+  handleEditMachine,
   handleMachineDeleteClick,
 } from "./eventFunc.js";
 import { getMachines } from "./fetchFunc.js";
@@ -21,6 +21,28 @@ const macNameInput1 = document.querySelector("#mac-name-input1");
 const macDescInput1 = document.querySelector("#mac-desc1");
 
 const machineId = console.log(editSelect);
+
+const handleEditButtonClick = (event) => {
+  const makine_ust_grup_id = event.target.getAttribute("makine_ust_grup_id");
+  const makine_adi = event.target.getAttribute("makine_adi");
+  const makine_aciklamasi = event.target.getAttribute("makine_aciklamasi");
+  const makine_ust_grup_id_data =
+    event.target.getAttribute("makine_aciklamasi");
+
+  const macUpGroupInput1 = document.querySelector("#mac-Up-Group-id1");
+  const macNameInput1 = document.querySelector("#mac-name-input1");
+  const macDescInput1 = document.querySelector("#mac-desc1");
+
+  macUpGroupInput1.value = makine_ust_grup_id;
+  macNameInput1.value = makine_adi;
+  macDescInput1.value = makine_aciklamasi;
+  console.log(macUpGroupInput1.value);
+};
+mactableList.addEventListener("click", (event) => {
+  if (event.target.classList.contains("edit-btn")) {
+    handleEditButtonClick(event);
+  }
+});
 
 let isError = false;
 export const renderMachines = (machines) => {
@@ -53,12 +75,13 @@ export const renderMachines = (machines) => {
 
     makineler.forEach((itemMach) => {
       const { makine_adi, makine_aciklamasi, makine_ust_grup_id } = itemMach; //! dest
-      writeModal(
-        itemMach.id,
-        makine_adi,
-        makine_aciklamasi,
-        makine_ust_grup_id
-      ); // writeModal fonksiyonunu çağır
+      // writeModal(
+      //   itemMach.id,
+      //   makine_adi,
+      //   makine_aciklamasi,
+      //   makine_ust_grup_id
+      // ); // writeModal fonksiyonunu çağır
+
       mactableList.innerHTML += `
       <tr class="${itemMach.id}">
         <th scope="row" id="id">${itemMach.id}</th>
@@ -68,12 +91,16 @@ export const renderMachines = (machines) => {
         <td>
         <div class="modal-button">
         <button
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal1"
-        data-id="${itemMach.id}"
-        onclick="writeModal('${itemMach.id}', '${makine_adi}', '${makine_aciklamasi}', '${makine_ust_grup_id}')"
+          type="button"
+          class="btn btn-primary edit-btn"
+          id="editMacRowBtn"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal1"
+          data-id="${itemMach.id}"
+          makine_adi="${makine_adi}"
+          makine_ust_grup_id="${makine_ust_grup_id}"
+          makine_aciklamasi="${makine_aciklamasi}"
+          onclick="handleEditButtonClick(event)"
       >
         Edit Machine
       </button>
@@ -84,18 +111,25 @@ export const renderMachines = (machines) => {
       `;
     });
   });
-  function writeModal(id, makine_adi, makine_aciklamasi, makine_ust_grup_id) {
+  function writeModal(
+    id,
+    makine_adi,
+    makine_aciklamasi,
+    makine_ust_grup_id,
+    makine_Ust_Grup_adi
+  ) {
     // document.querySelector("modalInputId").value = id;
     const macUpGroupInput1 = document.querySelector("#mac-Up-Group-id1");
     const macNameInput1 = document.querySelector("#mac-name-input1");
     const macDescInput1 = document.querySelector("#mac-desc1");
+
     const inputElement = document.querySelector("#modalInputId");
     inputElement.value = "Yazılan metin";
-    console.log(inputElement);
 
-    macUpGroupInput1.value = makine_ust_grup_id;
+    macUpGroupInput1.value = makine_Ust_Grup_adi;
     macNameInput1.value = makine_adi;
     macDescInput1.value = makine_aciklamasi;
+    console.log(macUpGroupInput1.value);
   }
   // const newOption1 = document.createElement("option");
   // editSelect.appendChild(newOption1);
@@ -116,6 +150,6 @@ mactableList.addEventListener("click", handleMachineDeleteClick);
 
 //!------------- Add Machines  -------------->
 // handleAddMachine();
-// addBtn.addEventListener("click", handleAddMachine);
+addBtn.addEventListener("click", handleAddMachine);
 
 handleAddMachine();
