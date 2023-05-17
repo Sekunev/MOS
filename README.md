@@ -11,9 +11,10 @@
 ● İlişkisel kolonlarda dropdown elementini kullanarak seçim yapma.
 ● Backend ve frontend'in deploy edilerek canlıya alınması.
 
+<!--
 ### Visualization of the Website
 
-![image](https://github.com/Sekunev/Stock-App/blob/main/src/assets/AnimationProject.gif)
+![image](https://github.com/Sekunev/Stock-App/blob/main/src/assets/AnimationProject.gif) -->
 
 ## Project Skeleton
 
