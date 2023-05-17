@@ -13,7 +13,7 @@
 
 ### Visualization of the Website
 
-![image](https://github.com/Sekunev/MOS/blob/main/FRONTEND/img/image.png)
+![image](https://github.com/Sekunev/MOS/blob/main/FRONTEND/img/AnimationProject.gif)
 
 ## Project Skeleton
 
